@@ -20,43 +20,55 @@ public class Backend{
 
     }
     public void calculate_lbead(){
-        System.out.println(xl);
-        System.out.println(fxl);
         if(xl > 0 && fxl > 0) {
             lbead = xl / (2 * fxl * Math.PI);
-            if(al!=null) al.actionPerformed(new ActionEvent(
-                    this,
-                    ActionEvent.ACTION_PERFORMED,
-                    ""));
+
         }
+        else {
+            lbead = 0;
+        }
+        if(al!=null) al.actionPerformed(new ActionEvent(
+                this,
+                ActionEvent.ACTION_PERFORMED,
+                ""));
     }
     public void calculate_cpar(){
         if(xc != 0 && fxc > 0){
             if(xc < 0 ){ xc -= xc; }
             cpar = 1/(2*Math.PI * fxc * xc);
-            if(al!=null) al.actionPerformed(new ActionEvent(
-                    this,
-                    ActionEvent.ACTION_PERFORMED,
-                    ""));
+
         }
+        else {
+            cpar = 0;
+        }
+        if(al!=null) al.actionPerformed(new ActionEvent(
+                this,
+                ActionEvent.ACTION_PERFORMED,
+                ""));
     }
 
     public void calculate_rdamp(){
-        boolean calculated = false;
+
         if(lbead > 0 && cdamp > 0){
             rdamp_min = 2 * Math.sqrt(lbead/cdamp);
-            calculated = true;
+
+        }
+        else{
+            rdamp_min = 0;
         }
         if(lbead  > 0 && cdecoup > 0){
             rdamp_max = 0.5 * Math.sqrt(lbead/cdecoup);
-            calculated = true;
+
         }
-        if(calculated){
-            if(al!=null) al.actionPerformed(new ActionEvent(
+        else {
+            rdamp_max = 0;
+        }
+
+        if(al!=null) al.actionPerformed(new ActionEvent(
                     this,
                     ActionEvent.ACTION_PERFORMED,
                     ""));
-        }
+
     }
 
     public void calculate(){

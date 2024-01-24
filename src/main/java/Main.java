@@ -60,7 +60,53 @@ public class Main extends JFrame {
     private JTextField textFieldDampingResistorsRmin;
     private JComboBox comboBoxDampingResistorsRMin;
 
+    private Backend backend;
     private Units units = new Units();
+
+    private String sanitize(String word) {
+        if (word.length() <= 0) {
+            word = "0";
+        }
+        return word;
+    }
+
+    private void updateBackend() {
+        double xl, fxl, xc, fxc, rac, rdc, cdamp, cdecoup;
+        xl = Double.parseDouble(sanitize(textFieldModelReactancesXL.getText())) *
+                Math.pow(10, units.getResistanceUnitPowerAtIndex(comboBoxModelReactancesXL.getSelectedIndex()));
+
+        fxl = Double.parseDouble(sanitize(textFieldModelReactancesFXL.getText())) *
+                Math.pow(10, units.getFrequencyPowerAtIndex(comboBoxModelReactancesFXC.getSelectedIndex()));
+
+        xc = Double.parseDouble(sanitize(textFieldModelReactancesXC.getText())) *
+                Math.pow(10, units.getResistanceUnitPowerAtIndex(comboBoxModelReactancesXC.getSelectedIndex()));
+
+        fxc = Double.parseDouble(sanitize(textFieldModelReactancesFXC.getText())) *
+                Math.pow(10, units.getFrequencyPowerAtIndex(comboBoxModelReactancesFXC.getSelectedIndex()));
+
+        rac = Double.parseDouble(sanitize(textFieldModelResistanceRAC.getText())) *
+                Math.pow(10, units.getResistanceUnitPowerAtIndex(comboBoxModelResistanceRAC.getSelectedIndex()));
+
+        rdc = Double.parseDouble(sanitize(textFieldModelResistanceRAC.getText())) *
+                Math.pow(10, units.getResistanceUnitPowerAtIndex(comboBoxModelResistanceRDC.getSelectedIndex()));
+
+        cdamp = Double.parseDouble(sanitize(textFieldDampingLCValuesCDAMP.getText())) *
+                Math.pow(10, units.getCapacitanceUnitPowerAtIndex(comboBoxDampingLCValuesCDAMP.getSelectedIndex()));
+
+        cdecoup = Double.parseDouble(sanitize(textFieldDampingLCValuesCDECOUP.getText())) *
+                Math.pow(10, units.getCapacitanceUnitPowerAtIndex(comboBoxDampingLCValuesCDECOUP.getSelectedIndex()));
+
+        backend.setXl(xl);
+        backend.setFxl(fxl);
+        backend.setXc(xc);
+        backend.setFxc(fxc);
+        backend.setRa(rac);
+        backend.setRdc(rdc);
+        backend.setCdamp(cdamp);
+        backend.setCdecoup(cdecoup);
+
+        backend.calculate();
+    }
 
     private void setUnits() {
         for (int idx = 0; idx < units.getResistanceUnitCount(); idx++) {
@@ -90,7 +136,7 @@ public class Main extends JFrame {
 
     public Main() {
 
-        Backend backend = new Backend();
+        backend = new Backend();
 
         setContentPane(panel1);
         setTitle("Ferrite");
@@ -105,122 +151,116 @@ public class Main extends JFrame {
         textFieldModelReactancesXL.getDocument().addDocumentListener(new DocumentListener() {
             @Override
             public void insertUpdate(DocumentEvent e) {
-                backend.setXl(Double.parseDouble(textFieldModelReactancesXL.getText()));
-                backend.calculate();
+                updateBackend();
             }
 
             @Override
             public void removeUpdate(DocumentEvent e) {
-                backend.setXl(Double.parseDouble(textFieldModelReactancesXL.getText()));
-                backend.calculate();
+                updateBackend();
             }
 
             @Override
             public void changedUpdate(DocumentEvent e) {
-                backend.setXl(Double.parseDouble(textFieldModelReactancesXL.getText()));
-                backend.calculate();
+                updateBackend();
             }
-
         });
 
         textFieldModelReactancesFXL.getDocument().addDocumentListener(new DocumentListener() {
             @Override
             public void insertUpdate(DocumentEvent e) {
-                backend.setFxl(Double.parseDouble(textFieldModelReactancesFXL.getText()));
-                backend.calculate();
+                updateBackend();
             }
 
             @Override
             public void removeUpdate(DocumentEvent e) {
-                backend.setFxl(Double.parseDouble(textFieldModelReactancesFXL.getText()));
-                backend.calculate();
+                updateBackend();
             }
 
             @Override
             public void changedUpdate(DocumentEvent e) {
-                backend.setFxl(Double.parseDouble(textFieldModelReactancesFXL.getText()));
-                backend.calculate();
+                updateBackend();
             }
+
         });
 
         textFieldModelReactancesXC.getDocument().addDocumentListener(new DocumentListener() {
             @Override
             public void insertUpdate(DocumentEvent e) {
-                backend.setXc(Double.parseDouble(textFieldModelReactancesXC.getText()));
-                backend.calculate();
+                updateBackend();
             }
+
 
             @Override
             public void removeUpdate(DocumentEvent e) {
-                backend.setXc(Double.parseDouble(textFieldModelReactancesXC.getText()));
-                backend.calculate();
+                updateBackend();
             }
+
 
             @Override
             public void changedUpdate(DocumentEvent e) {
-                backend.setXc(Double.parseDouble(textFieldModelReactancesXC.getText()));
-                backend.calculate();
+                updateBackend();
             }
+
         });
 
         textFieldModelReactancesFXC.getDocument().addDocumentListener(new DocumentListener() {
             @Override
             public void insertUpdate(DocumentEvent e) {
-                backend.setFxc(Double.parseDouble(textFieldModelReactancesFXC.getText()));
-                backend.calculate();
+                updateBackend();
             }
+
 
             @Override
             public void removeUpdate(DocumentEvent e) {
-                backend.setFxc(Double.parseDouble(textFieldModelReactancesFXC.getText()));
-                backend.calculate();
+                updateBackend();
             }
+
 
             @Override
             public void changedUpdate(DocumentEvent e) {
-                backend.setFxc(Double.parseDouble(textFieldModelReactancesFXC.getText()));
-                backend.calculate();
+                updateBackend();
             }
+
         });
 
         textFieldModelResistanceRAC.getDocument().addDocumentListener(new DocumentListener() {
             @Override
             public void insertUpdate(DocumentEvent e) {
-                backend.setRa(Double.parseDouble(textFieldModelResistanceRAC.getText()));
-                backend.calculate();
+                updateBackend();
             }
+
 
             @Override
             public void removeUpdate(DocumentEvent e) {
-                backend.setRa(Double.parseDouble(textFieldModelResistanceRAC.getText()));
-                backend.calculate();
+                updateBackend();
             }
+
 
             @Override
             public void changedUpdate(DocumentEvent e) {
-                backend.setRa(Double.parseDouble(textFieldModelResistanceRAC.getText()));
-                backend.calculate();
+                updateBackend();
             }
+
         });
 
         textFieldModelResistanceRAC.getDocument().addDocumentListener(new DocumentListener() {
             @Override
             public void insertUpdate(DocumentEvent e) {
-                backend.setRdc(Double.parseDouble(textFieldModelResistanceRAC.getText()));
-                backend.calculate();
+                updateBackend();
             }
+
 
             @Override
             public void removeUpdate(DocumentEvent e) {
-                backend.setRdc(Double.parseDouble(textFieldModelResistanceRAC.getText()));
-                backend.calculate();
+                updateBackend();
             }
+
 
             @Override
             public void changedUpdate(DocumentEvent e) {
-                backend.setRdc(Double.parseDouble(textFieldModelResistanceRAC.getText()));
-                backend.calculate();
+                updateBackend();
             }
+
         });
 
         textFieldDampingLCValuesCDAMP.getDocument().addDocumentListener(new DocumentListener() {
@@ -228,21 +268,21 @@ public class Main extends JFrame {
 
             @Override
             public void insertUpdate(DocumentEvent e) {
-                backend.setCdamp(Double.parseDouble(textFieldDampingLCValuesCDAMP.getText()));
-                backend.calculate();
+                updateBackend();
             }
+
 
             @Override
             public void removeUpdate(DocumentEvent e) {
-                backend.setCdamp(Double.parseDouble(textFieldDampingLCValuesCDAMP.getText()));
-                backend.calculate();
+                updateBackend();
             }
+
 
             @Override
             public void changedUpdate(DocumentEvent e) {
-                backend.setCdamp(Double.parseDouble(textFieldDampingLCValuesCDAMP.getText()));
-                backend.calculate();
+                updateBackend();
             }
+
         });
 
         textFieldDampingLCValuesCDECOUP.getDocument().addDocumentListener(new DocumentListener() {
@@ -250,22 +290,22 @@ public class Main extends JFrame {
 
             @Override
             public void insertUpdate(DocumentEvent e) {
-                backend.setCdecoup(Double.parseDouble(textFieldDampingLCValuesCDECOUP.getText()));
-                backend.calculate();
+                updateBackend();
             }
+
 
             @Override
             public void removeUpdate(DocumentEvent e) {
-                backend.setCdecoup(Double.parseDouble(textFieldDampingLCValuesCDECOUP.getText()));
-                backend.calculate();
+                updateBackend();
             }
 
             @Override
             public void changedUpdate(DocumentEvent e) {
-                backend.setCdecoup(Double.parseDouble(textFieldDampingLCValuesCDECOUP.getText()));
-                backend.calculate();
+                updateBackend();
             }
+
         });
+
 
         backend.addActionListener(e -> {
             double lbead, cpar, rdamp_max, rdamp_min;
