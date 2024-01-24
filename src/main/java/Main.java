@@ -76,7 +76,7 @@ public class Main extends JFrame {
                 Math.pow(10, units.getResistanceUnitPowerAtIndex(comboBoxModelReactancesXL.getSelectedIndex()));
 
         fxl = Double.parseDouble(sanitize(textFieldModelReactancesFXL.getText())) *
-                Math.pow(10, units.getFrequencyPowerAtIndex(comboBoxModelReactancesFXC.getSelectedIndex()));
+                Math.pow(10, units.getFrequencyPowerAtIndex(comboBoxModelReactancesFXL.getSelectedIndex()));
 
         xc = Double.parseDouble(sanitize(textFieldModelReactancesXC.getText())) *
                 Math.pow(10, units.getResistanceUnitPowerAtIndex(comboBoxModelReactancesXC.getSelectedIndex()));
@@ -306,6 +306,37 @@ public class Main extends JFrame {
 
         });
 
+        comboBoxModelReactancesXL.addActionListener(e -> {
+            updateBackend();
+        });
+
+        comboBoxModelReactancesFXL.addActionListener(e -> {
+            updateBackend();
+        });
+
+        comboBoxModelReactancesXC.addActionListener(e -> {
+            updateBackend();
+        });
+
+        comboBoxModelReactancesFXC.addActionListener(e -> {
+            updateBackend();
+        });
+
+        comboBoxModelResistanceRDC.addActionListener(e -> {
+            updateBackend();
+        });
+
+        comboBoxModelResistanceRAC.addActionListener(e -> {
+            updateBackend();
+        });
+
+        comboBoxDampingLCValuesCDECOUP.addActionListener(e -> {
+            updateBackend();
+        });
+
+        comboBoxDampingLCValuesCDAMP.addActionListener(e -> {
+            updateBackend();
+        });
 
         backend.addActionListener(e -> {
             double lbead, cpar, rdamp_max, rdamp_min;
