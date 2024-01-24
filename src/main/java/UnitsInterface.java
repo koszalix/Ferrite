@@ -13,4 +13,16 @@ public interface UnitsInterface {
 
     public int getFrequencyUnitCount();
 
+    public String[] getCapacitanceUnitNames();
+    public String getCapacitanceUnitNameAtIndex(int index);
+    public int[] getCapacitancePowers();
+    public  int getCapacitanceUnitPowerAtIndex(int index);
+    public int getCapacitanceUnitCount();
+
+    public String[] getInductanceUnitNames();
+    public String getInductanceUnitNameAtIndex(int index);
+    public int[] getInductancePowers();
+    public  int getInductanceUnitPowerAtIndex(int index);
+    public int getInductanceUnitCount();
+
 }

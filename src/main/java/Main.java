@@ -75,6 +75,16 @@ public class Main extends JFrame {
             comboBoxModelReactancesFXC.addItem(units.getFrequencyUnitNameAtIndex(idx));
             comboBoxModelReactancesFXL.addItem(units.getFrequencyUnitNameAtIndex(idx));
         }
+        for (int idx = 0; idx < units.getCapacitanceUnitCount(); idx++) {
+            comboBoxDampingLCValuesCDAMP.addItem(units.getCapacitanceUnitNameAtIndex(idx));
+            comboBoxDampingLCValuesCDECOUP.addItem(units.getCapacitanceUnitNameAtIndex(idx));
+            comboBoxModelValuesCPAR.addItem(units.getCapacitanceUnitNameAtIndex(idx));
+        }
+
+        for (int idx = 0; idx < units.getInductanceUnitCount(); idx++) {
+            comboBoxDampingLCValuesLBEAD.addItem(units.getInductanceUnitNameAtIndex(idx));
+            comboBoxModelValuesLBEAD.addItem(units.getInductanceUnitNameAtIndex(idx));
+        }
     }
 
 
