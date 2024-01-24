@@ -1,8 +1,12 @@
 import javax.swing.*;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
+
 import com.formdev.flatlaf.FlatDarkLaf;
 import com.formdev.flatlaf.FlatIntelliJLaf;
 
 import java.awt.*;
+import java.awt.event.*;
 
 public class Main extends JFrame {
 
@@ -73,7 +77,224 @@ public class Main extends JFrame {
         }
     }
 
-    private void buildUI(){
+
+    public Main() {
+
+        Backend backend = new Backend();
+
+        setContentPane(panel1);
+        setTitle("Ferrite");
+        setSize(500, 300);
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+
+        setUnits();
+
+        setVisible(true);
+
+        System.out.println("kk");
+        textFieldModelReactancesXL.getDocument().addDocumentListener(new DocumentListener() {
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                backend.setXl(Double.parseDouble(textFieldModelReactancesXL.getText()));
+                backend.calculate();
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                backend.setXl(Double.parseDouble(textFieldModelReactancesXL.getText()));
+                backend.calculate();
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                backend.setXl(Double.parseDouble(textFieldModelReactancesXL.getText()));
+                backend.calculate();
+            }
+
+        });
+
+        textFieldModelReactancesFXL.getDocument().addDocumentListener(new DocumentListener() {
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                backend.setFxl(Double.parseDouble(textFieldModelReactancesFXL.getText()));
+                backend.calculate();
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                backend.setFxl(Double.parseDouble(textFieldModelReactancesFXL.getText()));
+                backend.calculate();
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                backend.setFxl(Double.parseDouble(textFieldModelReactancesFXL.getText()));
+                backend.calculate();
+            }
+        });
+
+        textFieldModelReactancesXC.getDocument().addDocumentListener(new DocumentListener() {
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                backend.setXc(Double.parseDouble(textFieldModelReactancesXC.getText()));
+                backend.calculate();
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                backend.setXc(Double.parseDouble(textFieldModelReactancesXC.getText()));
+                backend.calculate();
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                backend.setXc(Double.parseDouble(textFieldModelReactancesXC.getText()));
+                backend.calculate();
+            }
+        });
+
+        textFieldModelReactancesFXC.getDocument().addDocumentListener(new DocumentListener() {
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                backend.setFxc(Double.parseDouble(textFieldModelReactancesFXC.getText()));
+                backend.calculate();
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                backend.setFxc(Double.parseDouble(textFieldModelReactancesFXC.getText()));
+                backend.calculate();
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                backend.setFxc(Double.parseDouble(textFieldModelReactancesFXC.getText()));
+                backend.calculate();
+            }
+        });
+
+        textFieldModelResistanceRAC.getDocument().addDocumentListener(new DocumentListener() {
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                backend.setRa(Double.parseDouble(textFieldModelResistanceRAC.getText()));
+                backend.calculate();
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                backend.setRa(Double.parseDouble(textFieldModelResistanceRAC.getText()));
+                backend.calculate();
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                backend.setRa(Double.parseDouble(textFieldModelResistanceRAC.getText()));
+                backend.calculate();
+            }
+        });
+
+        textFieldModelResistanceRAC.getDocument().addDocumentListener(new DocumentListener() {
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                backend.setRdc(Double.parseDouble(textFieldModelResistanceRAC.getText()));
+                backend.calculate();
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                backend.setRdc(Double.parseDouble(textFieldModelResistanceRAC.getText()));
+                backend.calculate();
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                backend.setRdc(Double.parseDouble(textFieldModelResistanceRAC.getText()));
+                backend.calculate();
+            }
+        });
+
+        textFieldDampingLCValuesCDAMP.getDocument().addDocumentListener(new DocumentListener() {
+
+
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                backend.setCdamp(Double.parseDouble(textFieldDampingLCValuesCDAMP.getText()));
+                backend.calculate();
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                backend.setCdamp(Double.parseDouble(textFieldDampingLCValuesCDAMP.getText()));
+                backend.calculate();
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                backend.setCdamp(Double.parseDouble(textFieldDampingLCValuesCDAMP.getText()));
+                backend.calculate();
+            }
+        });
+
+        textFieldDampingLCValuesCDECOUP.getDocument().addDocumentListener(new DocumentListener() {
+
+
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                backend.setCdecoup(Double.parseDouble(textFieldDampingLCValuesCDECOUP.getText()));
+                backend.calculate();
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                backend.setCdecoup(Double.parseDouble(textFieldDampingLCValuesCDECOUP.getText()));
+                backend.calculate();
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                backend.setCdecoup(Double.parseDouble(textFieldDampingLCValuesCDECOUP.getText()));
+                backend.calculate();
+            }
+        });
+
+        backend.addActionListener(e -> {
+            double lbead, cpar, rdamp_max, rdamp_min;
+
+            lbead = backend.getLbead();
+            cpar = backend.getCpar();
+            rdamp_max = backend.getRdamp_max();
+            rdamp_min = backend.getRdamp_min();
+
+            textFieldModelValuesLBEAD.setText(Double.toString(lbead));
+            textFieldDampingLCValuesLBEAD.setText(Double.toString(lbead));
+
+            textFieldModelValuesCPAR.setText(Double.toString(cpar));
+
+            textFieldDampingResistorsRMax.setText(Double.toString(rdamp_max));
+            textFieldDampingResistorsRmin.setText(Double.toString(rdamp_min));
+
+        });
+    }
+
+    public static void main(String[] args) {
+        Main main = new Main();
+    }
+
+    {
+// GUI initializer generated by IntelliJ IDEA GUI Designer
+// >>> IMPORTANT!! <<<
+// DO NOT EDIT OR ADD ANY CODE HERE!
+        $$$setupUI$$$();
+    }
+
+    /**
+     * Method generated by IntelliJ IDEA GUI Designer
+     * >>> IMPORTANT!! <<<
+     * DO NOT edit this method OR call it in your code!
+     *
+     * @noinspection ALL
+     */
+    private void $$$setupUI$$$() {
         panel1 = new JPanel();
         panel1.setLayout(new com.intellij.uiDesigner.core.GridLayoutManager(1, 1, new Insets(0, 0, 0, 0), -1, -1));
         tabbedPane_Main = new JTabbedPane();
@@ -88,6 +309,9 @@ public class Main extends JFrame {
         panelImages.add(spacer1, new com.intellij.uiDesigner.core.GridConstraints(0, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, 1, null, null, null, 0, false));
         final com.intellij.uiDesigner.core.Spacer spacer2 = new com.intellij.uiDesigner.core.Spacer();
         panelImages.add(spacer2, new com.intellij.uiDesigner.core.GridConstraints(1, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_VERTICAL, 1, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
+        final JLabel label1 = new JLabel();
+        label1.setText("Label");
+        panelImages.add(label1, new com.intellij.uiDesigner.core.GridConstraints(0, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         panelModelResistance = new JPanel();
         panelModelResistance.setLayout(new com.intellij.uiDesigner.core.GridLayoutManager(2, 5, new Insets(0, 0, 0, 0), 0, 0));
         panelModel.add(panelModelResistance, new com.intellij.uiDesigner.core.GridConstraints(1, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_BOTH, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
@@ -220,36 +444,13 @@ public class Main extends JFrame {
         final JPanel panel2 = new JPanel();
         panel2.setLayout(new com.intellij.uiDesigner.core.GridLayoutManager(1, 1, new Insets(0, 0, 0, 0), -1, -1));
         panelDamping.add(panel2, new com.intellij.uiDesigner.core.GridConstraints(2, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_BOTH, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
-
     }
 
-    public Main() {
-        FlatDarkLaf.setup();
-        buildUI();
-
-        try {
-            UIManager.setLookAndFeel(new FlatIntelliJLaf());
-        } catch (Exception ex) {
-            System.err.println("Failed to initialize LaF");
-        }
-
-        setContentPane(panel1);
-        setTitle("Ferrite");
-        setSize(500, 300);
-        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-
-        setUnits();
-
-        setVisible(true);
+    /**
+     * @noinspection ALL
+     */
+    public JComponent $$$getRootComponent$$$() {
+        return panel1;
     }
-
-
-
-    public static void main(String[] args) {
-        Main main = new Main();
-
-    }
-
-
 
 }
