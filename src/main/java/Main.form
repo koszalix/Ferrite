@@ -5,7 +5,10 @@
     <constraints>
       <xy x="20" y="20" width="816" height="400"/>
     </constraints>
-    <properties/>
+    <properties>
+      <font name="JetBrains Mono NL" style="1"/>
+      <requestFocusEnabled value="false"/>
+    </properties>
     <border type="none"/>
     <children>
       <tabbedpane id="78b9f" binding="tabbedPane_Main">
@@ -14,7 +17,10 @@
             <preferred-size width="200" height="200"/>
           </grid>
         </constraints>
-        <properties/>
+        <properties>
+          <font name="JetBrains Mono NL" style="1"/>
+          <requestFocusEnabled value="false"/>
+        </properties>
         <border type="none"/>
         <children>
           <grid id="6f3f4" binding="panelModel" layout-manager="GridLayoutManager" row-count="3" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
@@ -66,6 +72,7 @@
                       <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
                     </constraints>
                     <properties>
+                      <font name="JetBrains Mono NL" style="1"/>
                       <text value=" RAC "/>
                     </properties>
                   </component>
@@ -74,6 +81,7 @@
                       <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
                     </constraints>
                     <properties>
+                      <font name="JetBrains Mono NL" style="1"/>
                       <text value=" RDC "/>
                     </properties>
                   </component>
@@ -108,7 +116,7 @@
                   <hspacer id="87a98">
                     <constraints>
                       <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="1" hsize-policy="2" anchor="0" fill="1" indent="0" use-parent-layout="false">
-                        <preferred-size width="28" height="11"/>
+                        <preferred-size width="35" height="11"/>
                       </grid>
                     </constraints>
                   </hspacer>
@@ -134,7 +142,8 @@
                       <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
                     </constraints>
                     <properties>
-                      <text value="L_BEAD"/>
+                      <font name="JetBrains Mono NL" style="1"/>
+                      <text value=" L_BEAD"/>
                     </properties>
                   </component>
                   <component id="f10e" class="javax.swing.JLabel" binding="labelModelValuesCPAR">
@@ -142,6 +151,7 @@
                       <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
                     </constraints>
                     <properties>
+                      <font name="JetBrains Mono NL" style="1"/>
                       <text value="C_PAR"/>
                     </properties>
                   </component>
@@ -151,7 +161,9 @@
                         <preferred-size width="150" height="-1"/>
                       </grid>
                     </constraints>
-                    <properties/>
+                    <properties>
+                      <editable value="false"/>
+                    </properties>
                   </component>
                   <component id="acfb3" class="javax.swing.JTextField" binding="textFieldModelValuesLBEAD">
                     <constraints>
@@ -159,24 +171,30 @@
                         <preferred-size width="150" height="-1"/>
                       </grid>
                     </constraints>
-                    <properties/>
+                    <properties>
+                      <editable value="false"/>
+                    </properties>
                   </component>
                   <component id="56485" class="javax.swing.JComboBox" binding="comboBoxModelValuesLBEAD">
                     <constraints>
                       <grid row="0" column="4" row-span="1" col-span="1" vsize-policy="3" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
                     </constraints>
-                    <properties/>
+                    <properties>
+                      <enabled value="false"/>
+                    </properties>
                   </component>
                   <component id="3d546" class="javax.swing.JComboBox" binding="comboBoxModelValuesCPAR">
                     <constraints>
                       <grid row="1" column="4" row-span="1" col-span="1" vsize-policy="3" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
                     </constraints>
-                    <properties/>
+                    <properties>
+                      <enabled value="false"/>
+                    </properties>
                   </component>
                   <hspacer id="f5402">
                     <constraints>
                       <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="1" hsize-policy="2" anchor="0" fill="1" indent="0" use-parent-layout="false">
-                        <preferred-size width="15" height="-1"/>
+                        <preferred-size width="19" height="-1"/>
                       </grid>
                     </constraints>
                   </hspacer>
@@ -208,7 +226,8 @@
                       <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
                     </constraints>
                     <properties>
-                      <text value="f @ XC"/>
+                      <font name="JetBrains Mono NL" style="1"/>
+                      <text value=" f @ XC"/>
                     </properties>
                   </component>
                   <component id="55d06" class="javax.swing.JTextField" binding="textFieldModelReactancesFXC">
@@ -224,6 +243,7 @@
                       <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
                     </constraints>
                     <properties>
+                      <font name="JetBrains Mono NL" style="1"/>
                       <text value="XC"/>
                     </properties>
                   </component>
@@ -246,7 +266,8 @@
                       <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
                     </constraints>
                     <properties>
-                      <text value="f @ XL"/>
+                      <font name="JetBrains Mono NL" style="1"/>
+                      <text value=" f @ XL"/>
                     </properties>
                   </component>
                   <component id="c60a7" class="javax.swing.JTextField" binding="textFieldModelReactancesFXL">
@@ -268,6 +289,7 @@
                       <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
                     </constraints>
                     <properties>
+                      <font name="JetBrains Mono NL" style="1"/>
                       <text value="XL"/>
                     </properties>
                   </component>
@@ -326,6 +348,7 @@
                       <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
                     </constraints>
                     <properties>
+                      <font name="JetBrains Mono NL" style="1"/>
                       <text value="L_BEAD"/>
                     </properties>
                   </component>
@@ -334,7 +357,8 @@
                       <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
                     </constraints>
                     <properties>
-                      <text value="C_DECOUP"/>
+                      <font name="JetBrains Mono NL" style="1"/>
+                      <text value=" C_DECOUP"/>
                     </properties>
                   </component>
                   <component id="b9d11" class="javax.swing.JTextField" binding="textFieldDampingLCValuesLBEAD">
@@ -343,7 +367,9 @@
                         <preferred-size width="150" height="-1"/>
                       </grid>
                     </constraints>
-                    <properties/>
+                    <properties>
+                      <editable value="false"/>
+                    </properties>
                   </component>
                   <component id="3546c" class="javax.swing.JTextField" binding="textFieldDampingLCValuesCDECOUP">
                     <constraints>
@@ -357,7 +383,9 @@
                     <constraints>
                       <grid row="0" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
                     </constraints>
-                    <properties/>
+                    <properties>
+                      <enabled value="false"/>
+                    </properties>
                   </component>
                   <component id="7d369" class="javax.swing.JComboBox" binding="comboBoxDampingLCValuesCDECOUP">
                     <constraints>
@@ -370,7 +398,8 @@
                       <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                     </constraints>
                     <properties>
-                      <text value="C_DAMP"/>
+                      <font name="JetBrains Mono NL" style="1"/>
+                      <text value=" C_DAMP"/>
                     </properties>
                   </component>
                   <component id="56dc8" class="javax.swing.JTextField" binding="textFieldDampingLCValuesCDAMP">
@@ -421,7 +450,8 @@
                       <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                     </constraints>
                     <properties>
-                      <text value="R_DAMP_MAX"/>
+                      <font name="JetBrains Mono NL" style="1"/>
+                      <text value=" R_DAMP_MAX"/>
                     </properties>
                   </component>
                   <component id="d6d54" class="javax.swing.JTextField" binding="textFieldDampingResistorsRMax">
@@ -430,7 +460,9 @@
                         <preferred-size width="150" height="-1"/>
                       </grid>
                     </constraints>
-                    <properties/>
+                    <properties>
+                      <editable value="false"/>
+                    </properties>
                   </component>
                   <component id="3147f" class="javax.swing.JComboBox" binding="comboBoxDampingResistorsRMax">
                     <constraints>
@@ -443,7 +475,8 @@
                       <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                     </constraints>
                     <properties>
-                      <text value="R_DAMP_MIN"/>
+                      <font name="JetBrains Mono NL" style="1"/>
+                      <text value=" R_DAMP_MIN"/>
                     </properties>
                   </component>
                   <component id="da337" class="javax.swing.JTextField" binding="textFieldDampingResistorsRmin">
@@ -452,7 +485,9 @@
                         <preferred-size width="150" height="-1"/>
                       </grid>
                     </constraints>
-                    <properties/>
+                    <properties>
+                      <editable value="false"/>
+                    </properties>
                   </component>
                   <component id="401ce" class="javax.swing.JComboBox" binding="comboBoxDampingResistorsRMin">
                     <constraints>
